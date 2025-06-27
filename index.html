@@ -559,31 +559,7 @@
     </div>
 
     <div class="tab-content" id="experience">Experience content here...</div>
-    <div class="tab-content" id="skills" style="display:none">Skills content here...</div>
-    <div class="tab-content" id="education" style="display:none">Education content here...</div>
-    <div class="tab-content" id="achievements" style="display:none">Achievements content here...</div>
-    <div class="tab-content" id="contact" style="display:none">Contact content here...</div>
-  </div>
-</section>
-
-<script>
-  function showTab(tabName) {
-    const allTabs = document.querySelectorAll('.tab-content');
-    const allButtons = document.querySelectorAll('.tab-btn');
-
-    allTabs.forEach(tab => {
-      tab.style.display = tab.id === tabName ? 'block' : 'none';
-    });
-
-    allButtons.forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(tabName));
-    });
-  }
-</script>
-
-                        
-                        <div class="tab-content">
-                            <div id="experience" class="tab-panel active">
+          <div id="experience-tab" class="tab-panel active">
                                 <div class="experience-item">
                                     <div class="job-title">Product Manager – E-Commerce</div>
                                     <div class="company">PharmaHera GmbH, Berlin</div>
@@ -697,7 +673,9 @@
                                 </div>
                             </div>
 
-                            <div id="skills-tab" class="tab-panel">
+      
+    <div class="tab-content" id="skills" style="display:none">
+             <div id="skills-tab" class="tab-panel">
                                 <div class="skills-grid">
                                     <div class="skill-category">
                                         <div class="skill-icon">🚀</div>
@@ -748,6 +726,33 @@
                                         <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Roadmap Creation and Execution</p>
                                     </div>
                                 </div>
+ <!---   </div>--->
+    <div class="tab-content" id="education" style="display:none">Education content here...</div>
+    <div class="tab-content" id="achievements" style="display:none">Achievements content here...</div>
+    <div class="tab-content" id="contact" style="display:none">Contact content here...</div>
+  </div>
+</section>
+
+<script>
+  function showTab(tabName) {
+    const allTabs = document.querySelectorAll('.tab-content');
+    const allButtons = document.querySelectorAll('.tab-btn');
+
+    allTabs.forEach(tab => {
+      tab.style.display = tab.id === tabName ? 'block' : 'none';
+    });
+
+    allButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(tabName));
+    });
+  }
+</script>
+
+                        
+                     <!-- <div class="tab-content">-->  
+                          
+
+                           
 
                                 <h3 style="margin-top: 40px; margin-bottom: 20px; color: #2c3e50;">Languages</h3>
                                 <div class="languages-grid">
