@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Georgios Parafentis - Product Manager</title>
+    <title>Georgios Parafentis - Professional Portfolio</title>
     <style>
-        /* [ALL ORIGINAL CSS PRESERVED EXACTLY] */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -18,27 +18,514 @@
             background: #f8f9fa;
             min-height: 100vh;
         }
-        /* [REST OF CSS UNCHANGED] */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+            border: 1px solid #e9ecef;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            display: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #34495e;
+            margin: 0 auto 20px;
+            background: #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #3498db;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            color: #2c3e50;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+        }
+
+        .job-description li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .skill-level {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #3498db;
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            background: #34495e;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .download-btn {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Tab Styles */
+        .tabs-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        .tab-btn.active {
+            color: #2c3e50;
+            border-bottom-color: #3498db;
+        }
+
+        .tab-content {
+            min-height: 400px;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .achievement-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #27ae60;
+            border: 1px solid #e9ecef;
+        }
+
+        .achievement-company {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .achievement-desc {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e74c3c;
+            border: 1px solid #e9ecef;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            font-size: 1rem;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .language-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+
+        .language-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 48px;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                border-bottom: 1px solid #e9ecef;
+                border-right: none;
+                text-align: left;
+            }
+
+            .tab-btn.active {
+                border-bottom-color: #e9ecef;
+                border-left: 3px solid #3498db;
+                background: #f8f9fa;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <!-- UPDATED HEADER -->
             <div class="header">
                 <div class="profile-img">GP</div>
                 <h1>Georgios Parafentis</h1>
-                <p>Product Manager</p>
+                <p>Product Manager & Digital Innovation Expert</p>
             </div>
 
             <div class="content">
-                <!-- UPDATED ABOUT SECTION -->
                 <section class="section">
                     <h2>About Me</h2>
                     <div class="about-grid">
                         <div class="about-text">
-                            <p>Experienced product manager with 10+ years innovating in digital products, specializing in engagement and retention strategies.</p>
-                            <p>I've led product development across e-commerce, HealthTech SaaS, and online gaming industries, delivering measurable results through data-driven approaches.</p>
+                            <p>Experienced product manager with 10+ years innovating in digital products, specializing in engagement and retention strategies. I have successfully led product development across various industries including e-commerce, health tech, and gaming.</p>
+                            
+                            <p>My expertise spans from conceptualizing and launching digital therapy applications in VR environments to optimizing e-commerce platforms and managing mobile game portfolios. I excel at translating customer insights into actionable features and driving cross-functional team collaboration.</p>
                         </div>
                         <div class="stats">
                             <div class="stat-item">
@@ -46,56 +533,86 @@
                                 <span>Years Experience</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">20%</span>
-                                <span>Adherence Increase</span>
+                                <span class="stat-number">300K</span>
+                                <span>Peak DAU Achieved</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">194%</span>
-                                <span>Revenue Growth</span>
+                                <span>Revenue Increase</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">5</span>
-                                <span>Products Launched</span>
+                                <span class="stat-number">45%</span>
+                                <span>Cost Savings</span>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section class="section">
-                    <div class="tabs-container">
-                        <div class="tab-buttons">
-                            <button class="tab-btn active" onclick="showTab('experience')">Professional Experience</button>
-                            <button class="tab-btn" onclick="showTab('skills')">Skills & Expertise</button>
-                            <button class="tab-btn" onclick="showTab('contact')">Get In Touch</button>
-                        </div>
+  <div class="tabs-container">
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="showTab('experience')">Professional Experience</button>
+      <button class="tab-btn" onclick="showTab('skills')">Skills & Languages</button>
+      <button class="tab-btn" onclick="showTab('education')">Education</button>
+      <button class="tab-btn" onclick="showTab('achievements')">Key Achievements</button>
+      <button class="tab-btn" onclick="showTab('contact')">Get In Touch</button>
+    </div>
+
+    <div class="tab-content" id="experience">Experience content here...</div>
+    <div class="tab-content" id="skills" style="display:none">Skills content here...</div>
+    <div class="tab-content" id="education" style="display:none">Education content here...</div>
+    <div class="tab-content" id="achievements" style="display:none">Achievements content here...</div>
+    <div class="tab-content" id="contact" style="display:none">Contact content here...</div>
+  </div>
+</section>
+
+<script>
+  function showTab(tabName) {
+    const allTabs = document.querySelectorAll('.tab-content');
+    const allButtons = document.querySelectorAll('.tab-btn');
+
+    allTabs.forEach(tab => {
+      tab.style.display = tab.id === tabName ? 'block' : 'none';
+    });
+
+    allButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(tabName));
+    });
+  }
+</script>
+
                         
                         <div class="tab-content">
-                            <!-- UPDATED EXPERIENCE SECTION -->
                             <div id="experience-tab" class="tab-panel active">
                                 <div class="experience-item">
-                                    <div class="job-title">Product Manager - E-Commerce</div>
+                                    <div class="job-title">Product Manager – E-Commerce</div>
                                     <div class="company">PharmaHera GmbH, Berlin</div>
-                                    <div class="date">May 2022 – Present</div>
+                                    <div class="date">May 2025 – Present</div>
                                     <div class="job-description">
                                         <ul>
-                                            <li>Spearheaded product strategy and roadmap for e-commerce business models</li>
-                                            <li>Led management of external service providers with efficient budget control</li>
-                                            <li>Collaborated with Marketing, Purchasing, and IT teams</li>
-                                            <li>Prioritized product backlog with customer-centric approach</li>
+                                            <li>Spearheaded the product strategy and roadmap for e-commerce business models, with a strong focus on the development and optimization of online shops</li>
+                                            <li>Led the management and communication of external service providers, ensuring efficient budget control, resource allocation, and timely project delivery</li>
+                                            <li>Collaborated closely with cross-functional teams, including Marketing, Purchasing, and IT, to align on business objectives, ensuring seamless execution of product initiatives</li>
+                                            <li>Prioritized product backlog items with a customer-centric approach, translating customer insights into actionable features and enhancements</li>
+                                            <li>Ensured transparency and alignment across teams by regularly creating, updating, and prioritizing the product roadmap in collaboration with key stakeholders</li>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div class="experience-item">
-                                    <div class="job-title">Product Manager - SaaS Mobile App (HealthTech)</div>
+                                    <div class="job-title">Product Manager – SaaS Mobile App (HealthTech)</div>
                                     <div class="company">Dopavision GmbH, Berlin</div>
-                                    <div class="date">May 2022 – May 2025</div>
+                                    <div class="date">Mar 2022 – Mar 2025</div>
                                     <div class="job-description">
                                         <ul>
-                                            <li>Led conception and launch of digital therapy VR app and web platform (B2B/B2C)</li>
-                                            <li>Defined product backlog with user stories and acceptance criteria</li>
-                                            <li>Conducted German market user research to improve UX</li>
-                                            <li>Established product monitoring metrics</li>
+                                            <li>Led the conception, development and launch of a digital therapy App, used in a VR environment, as well as a robust Web-based platform for serving our business partners (B2C and B2B)</li>
+                                            <li>Defined and managed the product backlog, including user stories, acceptance criteria, and key product metrics for tracking and optimization</li>
+                                            <li>Conducted user research and customer interviews for the German market, applying a hypothesis-driven approach to identify pain points, improve usability, and enhance UX</li>
+                                            <li>Worked closely with designers, engineers, and key stakeholders (including doctors and Private clinic owners) to translate insights into actionable product improvements</li>
+                                            <li>Evaluation of change requests and new product requirements for product improvement</li>
+                                            <li>Established metrics for monitoring, reporting and optimizing the product and its usability</li>
+                                            <li>Delivery of proof of concept, innovations and MVPs prior to general product release</li>
+                                            <li>Technical support to non-technical users before and after roll-out of new versions</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -103,155 +620,200 @@
                                 <div class="experience-item">
                                     <div class="job-title">Head of Product, Online Games</div>
                                     <div class="company">Gamigo Group, Berlin/Hamburg</div>
-                                    <div class="date">Dec 2016 - Feb 2022</div>
+                                    <div class="date">Dec 2016 – Feb 2022</div>
                                     <div class="job-description">
                                         <ul>
-                                            <li>Managed production of 5 PC and 3 mobile games</li>
-                                            <li>Launched 3 new products including Dawn of Gods (300k DAU peak)</li>
-                                            <li>Developed strategies based on market/competitor analysis</li>
-                                            <li>Mentored junior product managers</li>
+                                            <li>Led the production department, managing 5 PC Free-to-Play games and 3 mobile games</li>
+                                            <li>Successfully launched 3 new products in the EU and NA regions, driving monetization and user-to-customer conversion. One of those products was a strategy Mobile game (Dawn of Gods) which reached the 300k DAU at its peak</li>
+                                            <li>Develop product strategies based on market/customer requirements and competitor analysis in line with portfolio and solution strategy</li>
+                                            <li>Managed collaboration across cross-functional teams, including IT, Marketing, and Production</li>
+                                            <li>Delivered quarterly business updates to the company board and senior management</li>
+                                            <li>Led a team focused on the improvement of UX/UI of a web portal used by users and partners</li>
+                                            <li>Established metrics to track and optimize LTV of the customer base</li>
+                                            <li>Mentored junior product managers, fostering their growth and expertise in industry-specific KPIs</li>
                                         </ul>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="job-title">Product Manager / Sr. Product Manager, Online Games</div>
+                                    <div class="company">Aeria Games GmbH, Berlin</div>
+                                    <div class="date">Apr 2014 – Dec 2016</div>
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>Responsible for different Mobile and PC games, from monetization to engagement feature</li>
+                                            <li>Defined and executed Roadmap plans that aligned with the company's overall goals</li>
+                                            <li>Worked closely with developers and IT-Engineers to implement new features, improve existing UX/UI and optimize stability and reliability of on-line products</li>
+                                            <li>Responsible for backlog maintenance, writing user stories, Epics, and technical documentation</li>
+                                            <li>Defined success metrics through experimentation and data analytics</li>
+                                            <li>Led end-to-end product lifecycle, from ideation and launch to live operations</li>
+                                            <li>Conducted revenue performance analysis and presented quarterly business reviews to senior management</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="job-title">Project Manager (Freelancer), White Label Solution</div>
+                                    <div class="company">Interim Group GmbH, Berlin</div>
+                                    <div class="date">Nov 2013 – Jun 2014</div>
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>Responsible for business planning, strategy and communication. Manage day to day operations</li>
+                                            <li>Serve as the key contact point for investors and technical consultants</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="job-title">Project Manager (Project-based), Web Platform</div>
+                                    <div class="company">Rebate networks GmbH, Berlin</div>
+                                    <div class="date">May 2013 – Oct 2013</div>
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>Business plan projection, market research and monetization planning</li>
+                                            <li>Product management, UI/UX optimization and competitor's analysis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="job-title">Intern, Business Developer, Short-term Rental Platform</div>
+                                    <div class="company">Wimdu GmbH, Berlin</div>
+                                    <div class="date">Jul 2012 – Apr 2013</div>
+                                    <div class="job-description">
+                                        <ul>
+                                            <li>Identification of possible actions to increase market share</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="experience-item">
+                                    <div class="job-title">Jr. Legal Advisor, Corporate Law</div>
+                                    <div class="company">Union Agriculture Group, Montevideo</div>
+                                    <div class="date">Mar 2010 – Sep 2011</div>
+                                    <div class="job-description">
+                                        <p>Legal advisory role in corporate law matters</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- UPDATED SKILLS SECTION -->
                             <div id="skills-tab" class="tab-panel">
                                 <div class="skills-grid">
                                     <div class="skill-category">
-                                        <div class="skill-icon">📊</div>
-                                        <div class="skill-name">Product Management</div>
+                                        <div class="skill-icon">🚀</div>
+                                        <div class="skill-name">Agile Development</div>
                                         <div class="skill-level">
                                             <div class="skill-progress" style="width: 95%"></div>
                                         </div>
+                                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Scrum, Kanban, Jira & Confluence</p>
                                     </div>
                                     <div class="skill-category">
-                                        <div class="skill-icon">🔄</div>
-                                        <div class="skill-name">Agile (Scrum/Kanban)</div>
+                                        <div class="skill-icon">📊</div>
+                                        <div class="skill-name">Analytics</div>
                                         <div class="skill-level">
                                             <div class="skill-progress" style="width: 90%"></div>
                                         </div>
+                                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Tableau, SQL, Azure</p>
                                     </div>
                                     <div class="skill-category">
-                                        <div class="skill-icon">📈</div>
-                                        <div class="skill-name">Analytics</div>
+                                        <div class="skill-icon">🎨</div>
+                                        <div class="skill-name">UX/UI Design</div>
                                         <div class="skill-level">
                                             <div class="skill-progress" style="width: 85%"></div>
                                         </div>
+                                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Figma, Balsamiq, User Behavioral Analysis</p>
                                     </div>
                                     <div class="skill-category">
                                         <div class="skill-icon">🎮</div>
-                                        <div class="skill-name">Gamification</div>
+                                        <div class="skill-name">Gamification & SaaS</div>
                                         <div class="skill-level">
-                                            <div class="skill-progress" style="width: 88%"></div>
+                                            <div class="skill-progress" style="width: 92%"></div>
                                         </div>
+                                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Software as a Service Solutions</p>
                                     </div>
                                     <div class="skill-category">
                                         <div class="skill-icon">👥</div>
                                         <div class="skill-name">Team Leadership</div>
                                         <div class="skill-level">
-                                            <div class="skill-progress" style="width: 92%"></div>
+                                            <div class="skill-progress" style="width: 88%"></div>
                                         </div>
+                                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Cross-Functional Team Management</p>
                                     </div>
                                     <div class="skill-category">
-                                        <div class="skill-icon">🖥️</div>
-                                        <div class="skill-name">UX/UI Design</div>
+                                        <div class="skill-icon">🗺️</div>
+                                        <div class="skill-name">Product Strategy</div>
                                         <div class="skill-level">
-                                            <div class="skill-progress" style="width: 80%"></div>
+                                            <div class="skill-progress" style="width: 95%"></div>
                                         </div>
+                                        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Roadmap Creation and Execution</p>
                                     </div>
                                 </div>
-                                
-                                <!-- LANGUAGES SECTION -->
-                                <div style="margin-top: 40px;">
-                                    <h3 style="color: #2c3e50; margin-bottom: 15px;">Languages</h3>
-                                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; min-width: 120px; text-align: center; border: 1px solid #e9ecef;">
-                                            <strong>Spanish</strong><br>Native
-                                        </div>
-                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; min-width: 120px; text-align: center; border: 1px solid #e9ecef;">
-                                            <strong>English</strong><br>Proficient
-                                        </div>
-                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; min-width: 120px; text-align: center; border: 1px solid #e9ecef;">
-                                            <strong>German</strong><br>Fluent (C1)
-                                        </div>
+
+                                <h3 style="margin-top: 40px; margin-bottom: 20px; color: #2c3e50;">Languages</h3>
+                                <div class="languages-grid">
+                                    <div class="language-item">
+                                        <div class="language-name">Spanish</div>
+                                        <div class="language-level">Native</div>
+                                    </div>
+                                    <div class="language-item">
+                                        <div class="language-name">English</div>
+                                        <div class="language-level">Proficient</div>
+                                    </div>
+                                    <div class="language-item">
+                                        <div class="language-name">German</div>
+                                        <div class="language-level">Fluent (C1)</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- UPDATED CONTACT SECTION -->
-                            <div id="contact-tab" class="tab-panel">
-                                <div class="contact-grid">
-                                    <div class="contact-item" onclick="window.open('mailto:georgiospa@gmail.com')">
-                                        <div class="contact-icon">📧</div>
-                                        <div class="contact-label">Email</div>
-                                        <div class="contact-value">georgiospa@gmail.com</div>
-                                    </div>
-                                    <div class="contact-item" onclick="window.open('tel:+4915737575653')">
-                                        <div class="contact-icon">📞</div>
-                                        <div class="contact-label">Phone</div>
-                                        <div class="contact-value">+49 157 375 756 53</div>
-                                    </div>
-                                    <div class="contact-item" onclick="window.open('https://linkedin.com/in/gparafentis')">
-                                        <div class="contact-icon">💼</div>
-                                        <div class="contact-label">LinkedIn</div>
-                                        <div class="contact-value">linkedin.com/in/gparafentis</div>
-                                    </div>
-                                    <div class="contact-item" onclick="window.location.href='#skills'">
-                                        <div class="contact-icon">🌐</div>
-                                        <div class="contact-label">Languages</div>
-                                        <div class="contact-value">ES, EN, DE</div>
+                            <div id="education-tab" class="tab-panel">
+                                <div class="education-item">
+                                    <div class="degree">Master in Business & Law (MBL), Regulatory Law</div>
+                                    <div class="university">Freie Universitat Berlin</div>
+                                    <div class="date">Oct 2011 – Sep 2012</div>
+                                </div>
+
+                                <div class="education-item">
+                                    <div class="degree">Dr. in Law and Social Sciences</div>
+                                    <div class="university">Universidad de la Republica, Montevideo</div>
+                                    <div class="date">Apr 2004 – Nov 2010</div>
+                                </div>
+
+                                <div class="education-item">
+                                    <div class="degree">High School Diploma (Abitur)</div>
+                                    <div class="university">Deutsche Schule Montevideo</div>
+                                    <div class="date">1999 – 2003</div>
+                                </div>
+                            </div>
+
+                            <div id="achievements-tab" class="tab-panel">
+                                <div class="achievement-item">
+                                    <div class="achievement-company">Dopavision GmbH</div>
+                                    <div class="achievement-desc">
+                                        Ideation and development of new engagement gamified features which increased adherence by 20% on avg. in a 1-year digital treatment for children
                                     </div>
                                 </div>
 
-                                <button class="download-btn" onclick="downloadCV()">
-                                    📄 Download CV
-                                </button>
+                                <div class="achievement-item">
+                                    <div class="achievement-company">Gamigo Group AG</div>
+                                    <div class="achievement-desc">
+                                        Successful restructuring by downsizing the Production Department with minimal revenue impact yielding in a personnel cost savings of 45%
+                                    </div>
+                                </div>
+
+                                <div class="achievement-item">
+                                    <div class="achievement-company">Aeria Games GmbH</div>
+                                    <div class="achievement-desc">
+                                        Ideation and deployment of new monetization feature in an old product, yielding a 194% revenue increase
+                                    </div>
+                                </div>
+
+                                <div class="achievement-item">
+                                    <div class="achievement-company">Aeria Games GmbH</div>
+                                    <div class="achievement-desc">
+                                        Successful release of PC and Mobile products, breaking-even after 9 months
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
 
-    <!-- ORIGINAL JAVASCRIPT (UNCHANGED) -->
-    <script>
-        function animateSkills() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const rect = bar.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    bar.style.width = bar.style.width || '0%';
-                }
-            });
-        }
-
-        function downloadCV() {
-            alert('CV download functionality can be implemented with your actual CV file!');
-        }
-
-        function showTab(tabName) {
-            const panels = document.querySelectorAll('.tab-panel');
-            panels.forEach(panel => {
-                panel.classList.remove('active');
-            });
-
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            document.getElementById(tabName + '-tab').classList.add('active');
-            event.target.classList.add('active');
-
-            if (tabName === 'skills') {
-                setTimeout(animateSkills, 100);
-            }
-        }
-
-        window.addEventListener('scroll', animateSkills);
-        window.addEventListener('load', animateSkills);
-    </script>
-</body>
-</html>
+                            <div i
